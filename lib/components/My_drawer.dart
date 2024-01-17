@@ -1,7 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
+
+  // logout user
+void logout(){
+  // Log out function here
+  FirebaseAuth.instance.signOut();
+}
 
   @override
   Widget build(BuildContext context) {
@@ -90,8 +97,11 @@ class MyDrawer extends StatelessWidget {
               ),
             title: const Text('L O G O U T'),
             onTap: (){
-              // this is already the home screen so just pop drawer
+              // pop drawer
               Navigator.pop(context);
+
+              // logout
+              logout();
             },
           ),
         )
